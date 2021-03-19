@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Счётчик на Vue.js</title>
+</head>
+<body>
+    <div id="app" class="container">
+        <h1>Счётчик на Vue.js</h1>
+        <h2>{{ counter }}</h2>
+
+        <!--
+            Без методов 
+            <button @click="counter--" type="button">-1</button>
+            <button @click="counter = 0" type="button">Сброс</button>
+            <button @click="counter++" type="button">+1</button>
+        -->
+
+        <!-- С методами -->
+        <button @click="counterDec" type="button">-1</button>
+        <button @click="counterDis" type="button">Сброс</button>
+        <button @click="counterInc(5)" type="button">+5</button>
+    </div>
+
+    <script src="../../example/js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            methods: {
+                counterDec() {
+                    return this.counter--
+                },
+                counterDis() {
+                    return this.counter = 0
+                },
+                counterInc(num) {
+                    console.log(num);
+                    console.log(event);
+                    return this.counter = this.counter + 5
+                },
+            }
+        })
+    </script>
+</body>
+</html>

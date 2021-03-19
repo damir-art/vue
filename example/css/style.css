@@ -5,6 +5,12 @@ body {
     font-family: 'Courier New', Courier, monospace;
     color: #333;
 }
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
 .out {
     border: 4px solid #ccc;
     padding: 20px;

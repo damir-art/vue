@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Меняем приложение из другого</title>
+</head>
+<body>
+
+    <div class="container">
+        <p>
+            Изменяем приложение app1 из приложения app2, при нажатии по заголовку.
+        </p>
+        <div id="app1">
+            <h1>{{ title }}</h1>
+        </div>
+
+        <div id="app2">
+            <h1 @click="changeVue1">{{ title }}</h1>
+        </div>
+    </div>
+
+    <script src="../../example/js/vue.js"></script>
+
+    <script>
+        const app1 = new Vue({
+            el: '#app1',
+            data: {
+                title: 'Vue 1'
+            }
+        })
+
+        const app2 = new Vue({
+            el: '#app2',
+            data: {
+                title: 'Vue 2'
+            },
+            methods: {
+                changeVue1() {
+                    app1.title = 'Изменяем из app2'
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

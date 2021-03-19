@@ -1,7 +1,10 @@
 # Директива v-on
 Директива v-on предназначена для работы с событиями.
 
-По нажатию кнопки, меняем сообщение в свойстве `message`
+- v-on:click="changeMessage"
+- @click="changeMessage"
+
+По нажатию на кнопку, меняем сообщение в свойстве `message`
 
     <div>
         {{ message }}
@@ -17,8 +20,16 @@
             message: 'Вывод информации!'
         },
         methods: {
+            
+            // Анониманая функция
             changeMessage: function () {
                 this.message = 'Сообщение изменено'
             }
+
+            // Обычная тоже работает
+            changeTitle() {
+                this.title = 'Всем привет!'
+            }
+
         }
     })

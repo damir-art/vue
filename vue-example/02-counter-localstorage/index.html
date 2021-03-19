@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Счётчик на Vue.js с LocalStorage</title>
+</head>
+<body>
+
+    <div id="app" class="container">
+        <h1>Счётчик на Vue.js с LocalStorage</h1>
+        <p>
+            Используем LocalStorage чтобы сохранить значение счетчика, даже после перезагрузки страницы.
+        </p>
+        <h2>{{ counter }}</h2>
+
+        <!--
+            Без методов 
+            <button @click="counter--" type="button">-1</button>
+            <button @click="counter = 0" type="button">Сброс</button>
+            <button @click="counter++" type="button">+1</button>
+        -->
+
+        <!-- С методами -->
+        <button @click="counterDec" type="button">-1</button>
+        <button @click="counterDis" type="button">Сброс</button>
+        <button @click="counterInc(5)" type="button">+5</button>
+    </div>
+
+    <script src="../../example/js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            methods: {
+                counterDec() {
+                    this.counter--
+                    // localStorage.counter = this.counter
+                    this.setLocalCounter()
+                },
+                counterDis() {
+                    this.counter = 0
+                    // localStorage.counter = this.counter
+                    this.setLocalCounter()
+                },
+                counterInc(num) {
+                    // console.log(num);
+                    // console.log(event);
+                    this.counter = this.counter + num
+                    // localStorage.counter = this.counter
+                    this.setLocalCounter()
+
+                },
+                setLocalCounter() {
+                    localStorage.counter = this.counter
+                }
+            },
+            mounted() {
+                if (localStorage.counter) {
+                    this.counter = +localStorage.counter
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

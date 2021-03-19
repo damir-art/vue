@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    display: grid;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container {
+    width: 1110px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+}

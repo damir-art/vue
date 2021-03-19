@@ -1,21 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+# Компонент
+Зачем нужны компоненты?
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
-    <link rel="stylesheet" href="css/style.css">
-    <title>Vue.js</title>
-</head>
+Компонент это шаблон кода (HTML, CSS, JS) с помощью которого можно создавать дочерние компоненты. Изменяют только родительский компонент (шаблон), дочерние компоненты изменятся автоматически.
 
-<body>
-    
+Компоненты ускоряют разработку, поддержку и масштабирование кода. Один из важнейших элементов архитектуры приложения.
+
+Пример компонента: карточка товара.
+
+## Какие бывают компоненты?
+- локальные
+- глобальные
+
+## Пример компонента
+
+## Разное
+- `data` делаем функцией возвращающей объект, чтобы дочерние компоненты были независимы друг от друга
+
+Пример:
+
     <div id="app">
 
         <!-- размножаем компонент циклом-->
-        <!-- имя компонента можно записывать только через дефис, даже если  вкоде он через camelCase -->
         <card v-for="component in 1000" v-bind:key="component"></card>
 
     </div>
@@ -23,8 +28,8 @@
     <script src="js/vue.js"></script>
 
     <script>
-        // локальная регистрация компонента
-        const card = {
+        // глобальная регистрация компонента
+        Vue.component('card', {
             // data делаем функцией
             data() {
                 return {
@@ -51,23 +56,10 @@
                 sub() {
                     this.count > 1 ? this.count-- : ''
                 }
-            },
-            watch: {
-                count(newValue, oldValue) {
-                    console.log(`Новое значение ${newValue}, старое значение ${oldValue}`)
-                }
-            }
-        }
-
-        const app = new Vue({
-            el: '#app',
-            components: {
-                // имя свойства, может быть любым
-                // если свойство и значение повторяются, то можно записать одно слово
-                'card': card
             }
         })
-    </script>
 
-</body>
-</html>
+        const app = new Vue({
+            el: '#app'
+        })
+    </script>
