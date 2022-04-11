@@ -1,70 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="css/style.css">
     <title>Vue.js</title>
+    <script src="js/vue.js"></script>
 </head>
-
 <body>
-    
+
     <div id="app">
-
-        <!-- размножаем компонент циклом-->
-        <!-- имя компонента можно записывать только через дефис, даже если  вкоде он через camelCase -->
-        <card v-for="component in 1000" v-bind:key="component"></card>
-
+        <ul>
+            <li>{{ name }}</li>
+            <li>{{ surname }}</li>
+            <li>{{ age }}</li>
+        </ul>
+        <p v-bind:class="">
+            Перейдите по ссылке: <a v-bind:href="link" target="_blank">Яндекс</a>
+        </p>
+        <p>
+            {{ markup }}
+        </p>
     </div>
 
-    <script src="js/vue.js"></script>
-
     <script>
-        // локальная регистрация компонента
-        const card = {
-            // data делаем функцией
-            data() {
-                return {
-                    count: 1,
-                    countLimit: 4
-                }
-            },
-            template: `
-                <div class="card">
-                    <h1 class="card__title">Название</h1>
-                    <p class="card__descr">Описание</p>
-                    <div>
-                        <b class="card__price">5 000 руб</b>
-                    </div>
-                    <button @click="sub">-</button>
-                    <input v-model="count" type="text" />
-                    <button @click="add">+</button>
-                </div>
-            `,
-            methods: {
-                add() {
-                    this.count < this.countLimit ? this.count++ : ''
-                },
-                sub() {
-                    this.count > 1 ? this.count-- : ''
-                }
-            },
-            watch: {
-                count(newValue, oldValue) {
-                    console.log(`Новое значение ${newValue}, старое значение ${oldValue}`)
-                }
-            }
-        }
-
-        const app = new Vue({
+        var app = new Vue({
             el: '#app',
-            components: {
-                // имя свойства, может быть любым
-                // если свойство и значение повторяются, то можно записать одно слово
-                'card': card
+            data: {
+                name: 'Иван',
+                surname: 'Иванов',
+                age: 21,
+                link: 'https://ya.ru',
+                markup: '<a href="http://gabdr0.ru" target="_blank">HTML-разметка</a>'
+            },
+            methods: {
+                upperCase: function() {
+                    return this.name.toUpperCase()
+                }
             }
         })
     </script>

@@ -7,11 +7,8 @@ https://ru.vuejs.org/v2/guide/installation.html
 
 index.html:
 
-    <script src="js/vue.js"></script> // фреймворк
-    <script src="js/vue-app.js"></script> // инстанс, вью модель
-
-## CLI установка
-- нужен Node.js
+- `<script src="js/vue.js"></script>` - фреймворк
+- `<script src="js/vue-app.js"></script>` - код приложения, можно сначала код разместить перед `/body`
 
 ## Плагины для Vue
 - https://github.com/vuejs/awesome-vue
