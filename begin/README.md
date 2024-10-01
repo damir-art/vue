@@ -1,17 +1,14 @@
-# Основные понятия Vue
-В этом разделе рассматриваются основные понтия Vue.js
+# Начало работы с Vue
+В этом разделе рассматриваются установка Vue.js, основы работы с ним и термины.
 
-## mount
-В контексте Vue.js, метод `mount` используется для внедрения (монтирования) экземпляра Vue в существующий элемент DOM. Это один из способов начальной загрузки приложения Vue в HTML-документ.
+https://ru.vuejs.org/guide/introduction.html - официальный гайд
 
-Пример использования:
+Оглавление раздела:
+- Подключение / Установка Vue.js - `install.md`
+- Первое приложение - `first-app.md`
+- Объект data - `data.md`
+- Основы реактивности данных - `data-reactivity.md`
 
-    import { createApp } from 'vue';
+data, methods, mounted, this (основные опции Options API) https://ru.vuejs.org/guide/introduction.html#options-api
 
-    const app = createApp({
-      // Ваш компонент Vue здесь
-    });
-
-    app.mount('#app'); // Монтирование экземпляра Vue в элемент с id="app"
-
-В этом примере создается экземпляр Vue с помощью `createApp`, а затем он монтируется в элемент с идентификатором #app. Это позволяет Vue управлять содержимым этого элемента и отображать его согласно логике вашего приложения.
+ref, onMounted (основные опции Composition API) https://ru.vuejs.org/guide/introduction.html#composition-api

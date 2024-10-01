@@ -1,17 +1,20 @@
 # Установка
-https://ru.vuejs.org/v2/guide/installation.html
+Установить Vue можно через CDN или npm. Также можно сделать первые сценарии в печочницах: https://ru.vuejs.org/guide/quick-start.html
 
-## Подключение скриптов
-- подключаем JavaScript-файл для разработки
-- или подключаем через CDN
+## CDN
+https://ru.vuejs.org/guide/quick-start.html#using-vue-from-cdn
 
-index.html:
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-- `<script src="js/vue.js"></script>` - фреймворк
-- `<script src="js/vue-app.js"></script>` - код приложения, можно сначала код разместить перед закрывающим тегом `</body>`
+Как модуль:
+
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+Файл по ссылке CDN можно скачать и разместить на хостинге, так будет быстрее работать.  
+Если Vue установлен как обычный файл, а не сборка через npm, то в этом случае не получится использовать синтаксис однофайловых компонентов (SFC).
 
 ## Установка Vue
-Установка vue через консоль.
+Установка Vue.js через консоль: https://ru.vuejs.org/guide/quick-start.html#creating-a-vue-application
 
 - переходим в терминале в папку
 - вводим код `npm create vue@latest`
@@ -30,7 +33,9 @@ index.html:
 
   cd vue-project
   npm install // ждем когда загрузит файлы
-  npm run dev // открываем в браузере адрес Local:
+  npm run dev // разработка, открываем в браузере адрес Local:
+  // читай project/vue-project/README.md
+  npm run build // продакшен
 
 Откроется сайт, чья страница основана на компоненте `src/App.vue`  
 Перейдя в VSC в этот файл вам предлжат установить расширение `Vue - Official`  
